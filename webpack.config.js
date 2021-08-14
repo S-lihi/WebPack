@@ -7,8 +7,10 @@ module.exports = {
     filename: "bundle.js",
   },
   plugins: [new HtmlWebpackPlugin({
-    inject: 'body'
-  })],
+    inject: 'body',
+    title: 'HW 20',
+    template: 'index.html'
+  }, )],
   module: {
     rules: [{
       test: /\.css$/i,
@@ -16,7 +18,7 @@ module.exports = {
     }, ]
   },
   devServer: {
-    contentBase: path.resolve(__dirname, "dist"), 
+    contentBase: path.resolve(__dirname, "dist"),
     index: "index.html",
     port: 8080,
     open: true,

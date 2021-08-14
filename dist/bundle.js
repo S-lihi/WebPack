@@ -16,7 +16,7 @@
   \*************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body{\\r\\n  background-color: aqua;\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://hw/./src/style.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\r\\n  box-sizing: border-box;\\r\\n  margin: 0;\\r\\n  padding: 0;\\r\\n  list-style: none;\\r\\n}\\r\\n\\r\\nbody {\\r\\n  display: flex;\\r\\n  justify-content: center;\\r\\n}\\r\\n.wrapper {\\r\\n  font-family: Arial, Helvetica, sans-serif;\\r\\n  padding-top: 30px;\\r\\n  padding-bottom: 30px;\\r\\n}\\r\\n\\r\\ninput {\\r\\n  height: 40px;\\r\\n  border: 1px solid #ccc;\\r\\n  background-color: transparent;\\r\\n  padding: 10px 20px;\\r\\n  font-size: 18px;\\r\\n  border-radius: 0;\\r\\n  margin-right: 5px;\\r\\n}\\r\\n\\r\\nul {\\r\\n  font-size: 18px;\\r\\n}\\r\\n\\r\\nli {\\r\\n  padding: 6px 0px 6px 10px;\\r\\n  border-bottom: 1px solid #ccc;\\r\\n  display: flex;\\r\\n  justify-content: space-between;\\r\\n  align-items: center;\\r\\n}\\r\\n\\r\\nli button{\\r\\n  background: #EFEFEF;\\r\\n  border: 1px solid #ccc;\\r\\n  height: 35px;\\r\\n  width: 40px;\\r\\n  font-size: 14px;\\r\\n  cursor: pointer;\\r\\n}\\r\\nli input{\\r\\n  max-width: 245px;\\r\\n}\\r\\n.addButton {\\r\\n  height: 40px;\\r\\n  width: 40px;\\r\\n  font-size: 20px;\\r\\n  vertical-align: top;\\r\\n}\\r\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://hw/./src/style.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -100,13 +100,53 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
-/***/ "./src/Components/Result.js":
+/***/ "./src/Components/Button.js":
 /*!**********************************!*\
-  !*** ./src/Components/Result.js ***!
+  !*** ./src/Components/Button.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (console.log('hi2'));\n\n//# sourceURL=webpack://hw/./src/Components/Result.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Button)\n/* harmony export */ });\n/* harmony import */ var _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Models/constants.js */ \"./src/Models/constants.js\");\n\r\nclass Button {\r\n  elemButton\r\n  resultsContainer\r\n  constructor(classButton, resultsContainer) {\r\n    this.elemButton = document.createElement('button')\r\n    this.elemButton.className = classButton\r\n    this.elemButton.disabled = true\r\n    this.elemButton.textContent = '+'\r\n    this.elemButton.addEventListener('click', this.addNewPosition.bind(this))\r\n    _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.wrapper.prepend(this.elemButton)\r\n    this.resultsContainer = resultsContainer\r\n  }\r\n  addNewPosition() {\r\n    const inputValue = document.querySelector('#search').value\r\n    const inputValueUpperFirst = inputValue[0].toUpperCase() + inputValue.slice(1)\r\n    _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items.push(inputValueUpperFirst)\r\n    localStorage.items = JSON.stringify(_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items)\r\n    this.resultsContainer.elemLink.innerHTML = `<li>${inputValueUpperFirst}</li>`\r\n    this.elemButton.disabled = true\r\n  }\r\n}\n\n//# sourceURL=webpack://hw/./src/Components/Button.js?");
+
+/***/ }),
+
+/***/ "./src/Components/ButtonSettings.js":
+/*!******************************************!*\
+  !*** ./src/Components/ButtonSettings.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ButtonSettings)\n/* harmony export */ });\n/* harmony import */ var _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Models/constants.js */ \"./src/Models/constants.js\");\n\r\nclass ButtonSettings {\r\n  editButton\r\n  resultsElem\r\n  _li\r\n  _cloneLi\r\n  _inputValue\r\n  constructor(resultsElem){\r\n    this.resultsElem = resultsElem\r\n    this.editButton = document.querySelector('.results')\r\n    this.editButton.addEventListener('click', e => {\r\n      this._li = e.target.closest('li')\r\n      if (e.target.innerHTML === '✖') {\r\n        _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items.splice(this._li.id, 1)\r\n        this.resultsElem.showResults(_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items)\r\n      } else if (e.target.innerHTML === '✎') {\r\n        this._cloneLi = this._li.cloneNode(true)\r\n        this._cloneLi.innerHTML = `<input value=\"${_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items[this._li.id]}\"></input>\r\n        <span>\r\n          <button>&#9998;</button>\r\n        </span>`\r\n        this._cloneLi.addEventListener('click', e => {\r\n          if (e.target.innerHTML === '✎') {\r\n            this._inputValue = document.querySelector('li>input').value\r\n            _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items[this._li.id] = this._inputValue            \r\n            this.resultsElem.showResults(_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items)\r\n          }\r\n        })\r\n        if (document.querySelectorAll('li>input').length < 1) {\r\n          this._li.after(this._cloneLi)\r\n        }\r\n      }\r\n    })\r\n  }\r\n}\r\n\n\n//# sourceURL=webpack://hw/./src/Components/ButtonSettings.js?");
+
+/***/ }),
+
+/***/ "./src/Components/Results.js":
+/*!***********************************!*\
+  !*** ./src/Components/Results.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Results)\n/* harmony export */ });\n/* harmony import */ var _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Models/constants.js */ \"./src/Models/constants.js\");\n\r\nclass Results {\r\n  elemLink\r\n  constructor(className) {\r\n    this.elemLink = document.createElement('ul')\r\n    this.elemLink.className = className\r\n    this.showResults(_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items)\r\n    _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.wrapper.appendChild(this.elemLink)\r\n  }\r\n  showResults(results) {\r\n    this.elemLink.innerHTML = ''\r\n    results.forEach((element, index) => this.elemLink.innerHTML += `<li id=\"${index}\">\r\n    <div>${element}</div>\r\n    <span>\r\n      <button>&#9998;</button>\r\n      <button>&#10006;</button>\r\n    </span>\r\n  </li>`);\r\n  }\r\n}\n\n//# sourceURL=webpack://hw/./src/Components/Results.js?");
+
+/***/ }),
+
+/***/ "./src/Components/Search.js":
+/*!**********************************!*\
+  !*** ./src/Components/Search.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Search)\n/* harmony export */ });\n/* harmony import */ var _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Models/constants.js */ \"./src/Models/constants.js\");\n\r\nclass Search {\r\n  elemLink\r\n  buttonContainer\r\n  constructor(id, placeholder, buttonContainer) {\r\n    this.elemLink = document.createElement('input')\r\n    this.elemLink.setAttribute('type', 'text')\r\n    this.elemLink.setAttribute('placeholder', placeholder)\r\n    this.elemLink.setAttribute('id', id)\r\n    this.elemLink.addEventListener('input', this.onInput.bind(this))\r\n    _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.wrapper.prepend(this.elemLink);\r\n    this.buttonContainer = buttonContainer\r\n  }\r\n  onInput() {\r\n    const inputValue = this.elemLink.value.toLowerCase()\r\n    const lowerCaseItems = _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items.map(elem => elem.toLowerCase())\r\n    if (inputValue && lowerCaseItems.includes(inputValue)) {\r\n      this.buttonContainer.elemButton.disabled = true\r\n    } else if (inputValue) {\r\n      this.buttonContainer.elemButton.disabled = false\r\n      const filteredResults = _Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items.filter(item => item.toLowerCase().includes(inputValue))\r\n      this.buttonContainer.resultsContainer.showResults(filteredResults)\r\n    } else {\r\n      this.buttonContainer.elemButton.disabled = true\r\n      this.buttonContainer.resultsContainer.showResults(_Models_constants_js__WEBPACK_IMPORTED_MODULE_0__.items)\r\n    }\r\n  }\r\n}\n\n//# sourceURL=webpack://hw/./src/Components/Search.js?");
+
+/***/ }),
+
+/***/ "./src/Models/constants.js":
+/*!*********************************!*\
+  !*** ./src/Models/constants.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"items\": () => (/* binding */ items),\n/* harmony export */   \"wrapper\": () => (/* binding */ wrapper)\n/* harmony export */ });\nconst items = [\"Молоко\", \"Орехи\", \"Кофе\", \"Сахар\", \"Хлеб\", \"Йогурт\", \"Сок\", \"Бананы\", \"Мандарины\", \"Шоколад\", \"Печенье\"]\r\nconst wrapper = document.querySelector('.wrapper')\n\n//# sourceURL=webpack://hw/./src/Models/constants.js?");
 
 /***/ }),
 
@@ -116,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Components_Result_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/Result.js */ \"./src/Components/Result.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\nconsole.log(_Components_Result_js__WEBPACK_IMPORTED_MODULE_0__.default);\r\nconsole.log('hi');\n\n//# sourceURL=webpack://hw/./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Components_Results_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Components/Results.js */ \"./src/Components/Results.js\");\n/* harmony import */ var _Components_Button_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/Button.js */ \"./src/Components/Button.js\");\n/* harmony import */ var _Components_Search_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/Search.js */ \"./src/Components/Search.js\");\n/* harmony import */ var _Components_ButtonSettings_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/ButtonSettings.js */ \"./src/Components/ButtonSettings.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\r\n\r\n\r\n\r\n\r\n\r\nconst resultsElem = new _Components_Results_js__WEBPACK_IMPORTED_MODULE_0__.default('results')\r\nconst buttonElem = new _Components_Button_js__WEBPACK_IMPORTED_MODULE_1__.default('addButton', resultsElem)\r\nnew _Components_Search_js__WEBPACK_IMPORTED_MODULE_2__.default('search', 'Найти / Создать', buttonElem)\r\nnew _Components_ButtonSettings_js__WEBPACK_IMPORTED_MODULE_3__.default(resultsElem)\r\n\n\n//# sourceURL=webpack://hw/./src/main.js?");
 
 /***/ })
 
